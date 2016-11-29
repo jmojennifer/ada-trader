@@ -32,6 +32,7 @@ const ApplicationView = Backbone.View.extend({
 
     return this;
   }
+
 });
 
 export default ApplicationView;
