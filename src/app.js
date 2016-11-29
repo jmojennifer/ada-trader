@@ -51,21 +51,12 @@ const simulate = function(quote) {
 };
 
 $(document).ready(function() {
-   var quoteTemplate = _.template($('#tmpl-quote-view').html());
-   var quoteElement = $('.quotes');
-   var stockList = [];
-
-   stockData.forEach(function(stock) {
-    var stockItem = new QuoteView({
-      stock: stock,
-      template: quoteTemplate
-    });
-    stockList.push(stockItem);
-    quoteElement.append(stockItem.render().$el);
+  var appView = new ApplicationView({
+     el: '#application',
+     stockData: stockData,
    });
-  // var appView = new ApplicationView({
-  //   el: '#application',
-  //   stockData: stockData,
+   appView.render();
+
 
   setInterval(function() {
     // Call simulate() on each quote in the ApplicationView
